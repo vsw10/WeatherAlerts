@@ -137,12 +137,10 @@ class MainActivity() :
         val location = latLang
         googlemap.clear()
 
-
         googlemap.addMarker(
             MarkerOptions()
                 .position(location)
         )
-        // [START_EXCLUDE silent]
         googlemap.moveCamera(CameraUpdateFactory.newLatLng(location))
         Toast.makeText(applicationContext, "Long Clicked Location ${latLang}", Toast.LENGTH_SHORT)
             .show()

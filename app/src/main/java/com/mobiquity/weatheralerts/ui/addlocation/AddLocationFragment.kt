@@ -29,8 +29,6 @@ class AddLocationFragment : Fragment(),
 
     lateinit var googlemap: GoogleMap
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -43,10 +41,6 @@ class AddLocationFragment : Fragment(),
 
         _binding = FragmentLocationBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        /*val textView: TextView = binding.textGallery
-        addLocationViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
         return root
     }
 
