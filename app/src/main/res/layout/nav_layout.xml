@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_constraint_root">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/locationRecyclerView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_constraint_root"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+   <View
+       android:layout_width="match_parent"
+       android:id="@+id/divider"
+       android:layout_height="2dp"
+       android:layout_margin="20dp"
+       app:layout_constraintBottom_toBottomOf="@+id/locationRecyclerView"
+       tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/help_screen"
+        android:layout_margin="24dp"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
