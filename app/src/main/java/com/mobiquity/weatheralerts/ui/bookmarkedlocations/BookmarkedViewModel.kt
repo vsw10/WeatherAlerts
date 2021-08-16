@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class BookmarkedViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is Bookmarked Locations"
     }
     val text: LiveData<String> = _text
 }

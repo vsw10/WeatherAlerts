@@ -28,7 +28,7 @@ class MainActivity() :
     private var bookmarkedLocationsFragment: BookmarkedFragment? = null
     private var helpScreenFragment:HelpScreenFragment? = null
 
-    private var addLocation : Fragment? = null
+    private var addLocation : SupportMapFragment? = null
     private var bookmarkedLocation: Fragment? = null
     private var helpScreen: Fragment? = null
 
@@ -40,14 +40,14 @@ class MainActivity() :
         super.onCreate(savedInstanceState)
         syncDrawerState()
         addLocation = supportFragmentManager
-            .findFragmentById(R.id.fragmentContainer1) as? SupportMapFragment
+            .findFragmentById(R.id.mark_location) as? SupportMapFragment
         bookmarkedLocation = supportFragmentManager
-            .findFragmentById(R.id.show_location) as? Fragment
+            .findFragmentById(R.id.display_weather) as? Fragment
         helpScreen = supportFragmentManager
-            .findFragmentById(R.id.help_screen) as? Fragment
-        showAddLocationFragment()
+            .findFragmentById(R.id.info_screen) as? Fragment
+        //showAddLocationFragment()
 
-        (addLocation as SupportMapFragment?)?.getMapAsync(this)
+        addLocation?.getMapAsync(this)
     }
 
     fun syncDrawerState(){

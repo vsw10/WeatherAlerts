@@ -14,5 +14,5 @@
         android:id="@+id/nav_gallery"
         android:name="com.mobiquity.weatheralerts.ui.helpscreen.HelpScreenFragment"
         android:label="@string/help_screen"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_help_screen" />
 </navigation>

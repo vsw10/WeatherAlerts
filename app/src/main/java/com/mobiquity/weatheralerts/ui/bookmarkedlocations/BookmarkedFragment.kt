@@ -8,16 +8,16 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.mobiquity.weatheralerts.databinding.FragmentHomeBinding
+import com.mobiquity.weatheralerts.databinding.FragmentBookmarkedBinding
 
 class BookmarkedFragment : Fragment() {
 
     private lateinit var bookmarkedViewModel: BookmarkedViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private var fragmentBookmarkedBinding: FragmentBookmarkedBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val binding get() = fragmentBookmarkedBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +27,7 @@ class BookmarkedFragment : Fragment() {
         bookmarkedViewModel =
             ViewModelProvider(this).get(BookmarkedViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        fragmentBookmarkedBinding = FragmentBookmarkedBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
@@ -39,6 +39,6 @@ class BookmarkedFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        fragmentBookmarkedBinding = null
     }
 }
