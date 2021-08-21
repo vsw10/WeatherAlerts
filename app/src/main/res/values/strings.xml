@@ -14,7 +14,7 @@
     <string name="alert_dialog_no">no</string>
     <string name="current_selected_location">Current Selected Location %$1s</string>
     <string name="error_weather_updates_api">"ERROR in retrieving the Weather Forecast for this Location,"
-                                            " OpenWeather APIs are not able to retrieve the temperaaure updates"
+                                            " OpenWeather APIs are not able to retrieve the weather updates"
                                             " Please try with some other location"</string>
 
 
