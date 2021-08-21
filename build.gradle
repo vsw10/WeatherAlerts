@@ -1,9 +1,33 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    fancyshowcaseviewVersion = '1.2.1'
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        fancyshowcaseviewVersion = '1.2.1'
+    }
     ext.kotlin_version = '1.5.21'
     repositories {
         google()
+        jcenter()
         mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+        classpath "com.google.gms:google-services:4.3.5"
+        classpath "io.realm:realm-gradle-plugin:10.6.1"
+        //classpath 'io.realm.kotlin:gradle-plugin:0.4.1'
+        classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.0"
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
         maven {
             url "https://jitpack.io"
         }
@@ -16,15 +40,6 @@ buildscript {
         maven {
             url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'
         }
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
-        classpath "com.google.gms:google-services:4.3.5"
-        //classpath 'io.realm.kotlin:gradle-plugin:0.4.1'
-        classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.0"
-
     }
 }
 

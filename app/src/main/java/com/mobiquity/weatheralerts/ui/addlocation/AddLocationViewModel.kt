@@ -8,8 +8,5 @@ import androidx.lifecycle.ViewModel
 
 class AddLocationViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Map View Fragment"
-    }
-    val text: LiveData<String> = _text
+
 }

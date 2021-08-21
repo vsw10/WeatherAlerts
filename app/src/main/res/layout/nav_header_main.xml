@@ -51,7 +51,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
 
-        android:id="@+id/pin_location"
+        android:id="@+id/pin_location_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pin_location"
@@ -61,23 +61,24 @@
         app:layout_constraintTop_toBottomOf="@+id/materialCardAdd"
         tools:ignore="MissingConstraints" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/locationRecyclerView"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/pin_location"/>
     <View
         android:layout_width="match_parent"
-        android:id="@+id/divider"
-        android:backgroundTint="@color/white"
+        android:id="@+id/divider1"
+        android:background="@android:color/holo_orange_dark"
         android:layout_height="2dp"
         android:layout_margin="20dp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/locationRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/pin_location_text"
         tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/location_recycler_view"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/pin_location_text"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/help_screen"
@@ -87,7 +88,7 @@
         android:layout_margin="10dp"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/location_recycler_view"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

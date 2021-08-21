@@ -3,15 +3,15 @@ package com.mobiquity.weatheralerts.model
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Location(var label: String? = null) : RealmObject()
-    {
+open class Location() : RealmObject() {
         @PrimaryKey
-        var id: String? = null
-        var country: String? = null
-        var zip: String? = null
-        var state: String? = null
-        var city: String? = null
-        var street: String? = null
-        var latitude: Double? = null
-        var longitude: Double? = null
+        var id: Int? = null
+
+        var mCountryName: String? = null
+        var mPostalCode: String? = null
+        var mCountryCode:String? = null
+        var mLocality: String? = null
+        var mLatitude: Double? = null
+        var mLongitude: Double? = null
+        var isDelete: Int? = null
 }

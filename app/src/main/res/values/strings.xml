@@ -7,12 +7,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
     <string name="help_screen">Help</string>
     <string name="pin_location">Pin Location</string>
+
+    <string name="alert_dialog_yes">yes</string>
+    <string name="alert_dialog_no">no</string>
+    <string name="current_selected_location">Current Selected Location %$1s</string>
+    <string name="error_weather_updates_api">"ERROR in retrieving the Weather Forecast for this Location,"
+                                            " OpenWeather APIs are not able to retrieve the temperaaure updates"
+                                            " Please try with some other location"</string>
+
 
 
 </resources>

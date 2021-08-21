@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -16,6 +19,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.mobiquity.weatheralerts.R
 import com.mobiquity.weatheralerts.databinding.FragmentLocationBinding
 
@@ -25,11 +29,14 @@ class AddLocationFragment : Fragment(),
     GoogleMap.OnMapLongClickListener{
 
     private lateinit var addLocationViewModel: AddLocationViewModel
-    private var _binding: FragmentLocationBinding? = null
+    private var fragmentLocationBinding : FragmentLocationBinding? = null
 
     lateinit var googlemap: GoogleMap
 
-    private val binding get() = _binding!!
+    private val binding get() = fragmentLocationBinding!!
+
+    private lateinit var linearProgress: LinearProgressIndicator
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +46,7 @@ class AddLocationFragment : Fragment(),
         addLocationViewModel =
             ViewModelProvider(this).get(AddLocationViewModel::class.java)
 
-        _binding = FragmentLocationBinding.inflate(inflater, container, false)
+        fragmentLocationBinding = FragmentLocationBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
@@ -50,21 +57,32 @@ class AddLocationFragment : Fragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //linearProgress = view.findViewById<LinearProgressIndicator>(R.id.linear_progress)
 
-        val mapFragment = view.findViewById<View>(R.id.pin_location) as SupportMapFragment?
+        val mapFragment =
+            view.findFragment<SupportMapFragment>() as? SupportMapFragment
+
         mapFragment?.getMapAsync(this)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        fragmentLocationBinding = null
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        linearProgress?.let {
+            it.isGone = true
+        }
         googlemap = googleMap ?: return
+        //markLocation(googlemap)
+        googleMap.setOnMapLongClickListener(this)
+        googleMap.setOnMarkerClickListener(this)
+
 
         googleMap.setOnMapLongClickListener(this)
         googleMap.setOnMarkerClickListener(this)
+
 
     }
 
@@ -86,8 +104,6 @@ class AddLocationFragment : Fragment(),
         )
         // [START_EXCLUDE silent]
         googlemap.moveCamera(CameraUpdateFactory.newLatLng(location))
-        Toast.makeText(requireContext(), "Long Clicked Location ${latLang}", Toast.LENGTH_SHORT)
-            .show()
     }
 
     companion object {
